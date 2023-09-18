@@ -9,10 +9,12 @@ public class pickupLetter : MonoBehaviour
     public AudioSource pickupSound;
     public bool interactable;
     public static int pagesCollected;
-    public Text collectText;
+    public Text collectText;    
+
+//note: Canvas of intText should have its own canvas, outside of collectText, and etc canvas.
 
     void OnTriggerStay(Collider other){
-        if (other.CompareTag("MainCamera"))
+        if (other.gameObject.tag == "Reach") //originally if (other.CompareTag("MainCamera")) 
         {
             intText.SetActive(true);
             interactable = true;
@@ -22,7 +24,7 @@ public class pickupLetter : MonoBehaviour
     }
 
     void OnTriggerExit(Collider other){
-    if (other.CompareTag("MainCamera"))
+    if (other.gameObject.tag == "Reach") // originally if (other.CompareTag("MainCamera"))
     {
         intText.SetActive(false);
         interactable = false;
@@ -35,8 +37,8 @@ public class pickupLetter : MonoBehaviour
 
         if (interactable == true){
             if(Input.GetKeyDown(KeyCode.E)){
-                pagesCollected = pagesCollected + 1; // +=1; 
-                collectText.text = pagesCollected + "/8 pages Collected";
+                pagesCollected += 1; 
+                collectText.text = pagesCollected + "/8 pages";
                 collectTextObj.SetActive(true);
                 pickupSound.Play();
                 intText.SetActive(false);
