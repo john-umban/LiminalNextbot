@@ -480,6 +480,8 @@
 "Assets/Thesis Assets/HealthPickUp.cs"
 "Assets/Thesis Assets/PlayerHealth.cs"
 "Assets/TriggerHandler.cs"
+"Assets/WinCondition/WinCondition/newstuff/DisableObject.cs"
+"Assets/WinCondition/WinCondition/newstuff/pickupLetter.cs"
 -langversion:9.0
 
 /deterministic
